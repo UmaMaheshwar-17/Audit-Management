@@ -1,0 +1,39 @@
+package AuditCreate1;
+import org.testng.annotations.Factory;
+
+import utilities.ExcelUtility;
+
+public class TestFactory {
+
+    @Factory
+    public Object[] createTests() throws Exception {
+        String path = System.getProperty("user.dir") + "/testdata/Test1.xlsx";
+        ExcelUtility.setExcelPath(path);
+        String sheet = "Sheet1";
+        int rowCount = ExcelUtility.getRowCount(sheet);
+
+        Object[] tests = new Object[rowCount - 1]; // Assuming row 0 is header
+
+        for (int i = 1; i <= rowCount; i++) {
+        	System.out.println(rowCount+"hiiii");
+        	
+        	String email = ExcelUtility.getCellData(sheet, i, 0);
+            String password = ExcelUtility.getCellData(sheet, i, 1);
+            String auditName = ExcelUtility.getCellData(sheet, i, 2);
+            String startMM = ExcelUtility.getCellData(sheet, i, 3);
+            String startDD = ExcelUtility.getCellData(sheet, i, 4);
+            String startYYYY = ExcelUtility.getCellData(sheet, i, 5);
+            String endMM = ExcelUtility.getCellData(sheet, i, 6);
+            String endDD = ExcelUtility.getCellData(sheet, i, 7);
+            String endYYYY = ExcelUtility.getCellData(sheet, i, 8);
+            String auditor = ExcelUtility.getCellData(sheet, i, 9);
+            String stakeholder = ExcelUtility.getCellData(sheet, i, 10);
+            String organisation = ExcelUtility.getCellData(sheet, i, 11);
+
+            tests[i - 1] = new FullAuditFlowSplit(email, password, auditName, startMM,
+                    startDD, startYYYY, endMM, endDD, endYYYY, auditor, stakeholder, organisation);
+        }
+
+        return tests;
+    }
+}

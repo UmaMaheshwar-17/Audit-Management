@@ -1,0 +1,25 @@
+package day6;
+
+import org.openqa.selenium.WebElement;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class mouseHover {
+	public static void main(String[] args) {
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://www.webpagetest.org/");
+	driver.manage().window().maximize();
+    WebElement SP= driver.findElement(By.xpath("//span[@class=\"home_test_select\"]"));
+    WebElement LH=driver.findElement(By.xpath("//a[@href=\"/lighthouse\"]"));
+    Actions act=new Actions(driver);
+    
+    act.moveToElement(SP).moveToElement(LH).click().build().perform();
+	
+	
+	}
+
+}

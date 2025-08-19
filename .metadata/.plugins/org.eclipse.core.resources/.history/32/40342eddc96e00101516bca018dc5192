@@ -1,0 +1,27 @@
+package day1;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class FirstTestCase {
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://localhost:5173/");
+		driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[1]/div/div/input")).sendKeys("verma21@gmail.com");
+		driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[2]/div/div/input")).sendKeys("Chintu1234");
+		driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[3]/div/button")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div[1]/a/div/div")).click();
+		List<WebElement> check1=driver.findElements(By.xpath("//form/div[1]/div/div/label"));
+		for(WebElement ch:check1) {
+			System.out.println(ch.getText());
+		}
+		
+	}
+
+}

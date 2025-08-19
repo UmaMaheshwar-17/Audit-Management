@@ -1,0 +1,30 @@
+package day3;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Frames {
+	 public static void main(String[] args) {
+	        WebDriver driver = new ChromeDriver();
+	        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	        driver.get("https://ui.vision/demo/webtest/frames/");
+	        driver.manage().window().maximize();
+	        WebElement f1=driver.findElement(By.xpath("//*[@src=\"frame_1.html\"]"));
+	        driver.switchTo().frame(f1);
+	        driver.findElement(By.xpath("//*[@name=\"mytext1\"]")).sendKeys("hello uma");
+	        //go back to page
+	        driver.switchTo().defaultContent();
+	        
+	        WebElement f2=driver.findElement(By.xpath("//*[@src=\"frame_2.html\"]"));
+	        driver.switchTo().frame(f2);
+	        driver.findElement(By.xpath("//*[@name=\"mytext2\"]")).sendKeys("HAIIII");
+	        
+	        
+	 }
+
+
+}

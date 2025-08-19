@@ -1,0 +1,81 @@
+package AuditCreate1;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import pageObjects.CreateAuditPage;
+import pageObjects.DashboardPage;
+import pageObjects.LoginPage;
+import pageObjects.RegisterPage;
+import testBase.BaseTest;
+
+public class FullAuditFlowSplit {
+
+    WebDriver driver;
+    String email, password, auditName;
+    String startMM, startDD, startYYYY;
+    String endMM, endDD, endYYYY;
+    String auditor, stakeholder, organisation;
+
+    public FullAuditFlowSplit(String email, String password, String auditName, String startMM,
+                              String startDD, String startYYYY, String endMM, String endDD, String endYYYY,
+                              String auditor, String stakeholder, String organisation) {
+        this.email = email;
+        this.password = password;
+        this.auditName = auditName;
+        this.startMM = startMM;
+        this.startDD = startDD;
+        this.startYYYY = startYYYY;
+        this.endMM = endMM;
+        this.endDD = endDD;
+        this.endYYYY = endYYYY;
+        this.auditor = auditor;
+        this.stakeholder = stakeholder;
+        this.organisation = organisation;
+    }
+
+    @BeforeClass
+    public void setup() {
+        driver = BaseTest.launchBrowser();
+    }
+
+    @Test
+    public void registerUser() throws InterruptedException {
+        new RegisterPage(driver).register(email, password);
+    }
+
+
+    @Test(dependsOnMethods = "registerUser")
+    public void loginUser() {
+        new LoginPage(driver).login(email, password);
+    }
+
+    @Test(dependsOnMethods = "loginUser")
+    public void goToDashboard() {
+        new DashboardPage(driver).clickSchedule();
+    }
+
+    @Test(dependsOnMethods = "goToDashboard")
+    public void createAudit() throws InterruptedException {
+        CreateAuditPage auditPage = new CreateAuditPage(driver);
+        auditPage.enterAuditName(auditName);
+        auditPage.selectStartDate(startMM, startDD, startYYYY);
+        auditPage.selectEndDate(endMM, endDD, endYYYY);
+        auditPage.selectAuditor(auditor);
+        auditPage.selectStakeholder(stakeholder);
+        auditPage.selectOrganisation(organisation);
+        auditPage.clickCreate();
+        Thread.sleep(2000);
+        auditPage.clickOk();
+        
+    }
+
+  //  @AfterClass
+   // public void tearDown() throws InterruptedException {
+    //    if (driver != null) {
+    //        Thread.sleep(3000);
+    //        driver.quit();
+    //    }
+   // }
+}

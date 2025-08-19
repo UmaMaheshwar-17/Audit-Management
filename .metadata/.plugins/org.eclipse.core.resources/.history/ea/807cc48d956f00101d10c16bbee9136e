@@ -1,0 +1,7 @@
+<suite name="Audit Suite">
+    <test name="Audit Feedback Tests">
+        <classes>
+            <class name="AuditFeedback.testFactory"/>
+        </classes>
+    </test>
+</suite>

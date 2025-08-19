@@ -1,0 +1,36 @@
+package pageObjects;
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import testBase.BasePage;
+
+public class feedBackPage extends BasePage {
+
+    public feedBackPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void clickAllCheckboxes1() {
+        List<WebElement> check1 = driver.findElements(By.xpath("//form/div[1]/div/div/label"));
+        for (WebElement ch : check1) {
+            System.out.println("Information Security Management System (ISMS)");
+            ch.click();
+        }
+    }
+    public void clickAllCheckboxes2() {
+    	List<WebElement> check1 = driver.findElements(By.xpath("//form/div[2]/div/div/label"));
+    	for (WebElement ch : check1) {
+    		System.out.println("Quality Management System (QMS)");
+    		ch.click();
+    	}
+    }
+    public void clickAllCheckboxes3() {
+    	List<WebElement> check1 = driver.findElements(By.xpath("//form/div[3]/div/div/label"));
+    	for (WebElement ch : check1) {
+    		System.out.println("Quality Management System (QMS)");
+    		ch.click();
+    	}
+    }
+}

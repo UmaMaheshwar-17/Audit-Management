@@ -1,0 +1,18 @@
+package testBase;
+
+import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BaseTest {
+
+    // No shared static driver anymore
+    public static WebDriver launchBrowser() {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.get("http://localhost:5173/login"); // Can be parameterized if needed
+        System.out.println("Browser launched and navigated to login page");
+        return driver;
+    }
+}

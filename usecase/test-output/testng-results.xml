@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-08-12T10:04:43 IST" name="Audit Suite" finished-at="2025-08-12T10:05:02 IST" duration-ms="19243">
+    <groups>
+    </groups>
+    <test started-at="2025-08-12T10:04:43 IST" name="Audit Feedback Tests" finished-at="2025-08-12T10:05:02 IST" duration-ms="19243">
+      <class name="AuditFeedback.fullAuditFeedback">
+        <test-method signature="launchBrowserAndLogin()[pri:0, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:44 IST" name="launchBrowserAndLogin" finished-at="2025-08-12T10:04:50 IST" duration-ms="6632" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowserAndLogin -->
+        <test-method signature="navigateToUpcomingAudits()[pri:1, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:50 IST" name="navigateToUpcomingAudits" finished-at="2025-08-12T10:04:51 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.launchBrowserAndLogin" duration-ms="684" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToUpcomingAudits -->
+        <test-method signature="openAuditFromList()[pri:2, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:51 IST" name="openAuditFromList" finished-at="2025-08-12T10:04:52 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.navigateToUpcomingAudits" duration-ms="750" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openAuditFromList -->
+        <test-method signature="giveFeedbackAndComplete()[pri:3, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:52 IST" name="giveFeedbackAndComplete" finished-at="2025-08-12T10:05:01 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.openAuditFromList" duration-ms="9182" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- giveFeedbackAndComplete -->
+        <test-method signature="goToCompletedAuditsAndExport()[pri:4, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:05:01 IST" name="goToCompletedAuditsAndExport" finished-at="2025-08-12T10:05:02 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.giveFeedbackAndComplete" duration-ms="1024" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToCompletedAuditsAndExport -->
+      </class> <!-- AuditFeedback.fullAuditFeedback -->
+    </test> <!-- Audit Feedback Tests -->
+  </suite> <!-- Audit Suite -->
+</testng-results>

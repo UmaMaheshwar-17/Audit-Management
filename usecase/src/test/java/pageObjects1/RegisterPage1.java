@@ -1,0 +1,70 @@
+package pageObjects1;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import testBase.BasePage;
+
+import java.time.Duration;
+
+public class RegisterPage1 extends BasePage {
+
+    public RegisterPage1(WebDriver driver) {
+        super(driver);
+    }
+    
+    private By auditorNameLoc = By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[1]/div/div/input");
+    private By emailLocator = By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[2]/div/div/input");
+    private By passwordLocator = By.xpath("/html/body/div/div/div[2]/div/div/form/div/div/div[3]/div/div/input");
+    private By registerButtonLocator = By.xpath("//button[normalize-space()='Register']");
+    private By loginButtonLocator = By.xpath("//button[normalize-space()='Login']");  // login button to wait for after registration
+    
+
+    public void register(String auditor,String email, String password) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        try {
+        	
+        	WebElement auditorField = wait.until(ExpectedConditions.elementToBeClickable(auditorNameLoc));
+            auditorField.clear();
+            auditorField.sendKeys(auditor);
+            
+            WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(emailLocator));
+            emailField.clear();
+            emailField.sendKeys(email);
+            
+
+            WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(passwordLocator));
+            passwordField.clear();
+            passwordField.sendKeys(password);
+
+            Thread.sleep(500);  // slight pause for UI stability
+            WebElement registerButton = wait.until(ExpectedConditions.elementToBeClickable(registerButtonLocator));
+            registerButton.click();
+
+        } catch (StaleElementReferenceException | ElementNotInteractableException e) {
+            System.out.println("🔁 Retrying RegisterPage due to: " + e.getMessage());
+            Thread.sleep(1000);  // allow DOM to stabilize
+            
+            WebElement auditorField = wait.until(ExpectedConditions.elementToBeClickable(auditorNameLoc));
+            auditorField.clear();
+            auditorField.sendKeys(auditor);
+
+            WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(emailLocator));
+            emailField.clear();
+            emailField.sendKeys(email);
+
+            WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(passwordLocator));
+            passwordField.clear();
+            passwordField.sendKeys(password);
+
+            Thread.sleep(500);
+            WebElement registerButton = wait.until(ExpectedConditions.elementToBeClickable(registerButtonLocator));
+            registerButton.click();
+        }
+
+        // Wait for login page to load (important)
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginButtonLocator));
+        System.out.println("✅ Login button detected, registration completed.");
+    }
+}

@@ -1,0 +1,7 @@
+<suite name="fullAuditSuite">
+    <test name="Excel1DataDrivenTests">
+        <classes>
+            <class name="AuditCreate1.TestFactory"/>
+        </classes>
+    </test>
+</suite>

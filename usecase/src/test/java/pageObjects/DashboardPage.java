@@ -1,0 +1,54 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import testBase.BasePage;
+
+import java.time.Duration;
+
+public class DashboardPage extends BasePage {
+
+    public DashboardPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy(xpath = "//a[normalize-space()='Schedule']")
+    WebElement scheduleButton;
+
+    @FindBy(xpath = "//a[@href=\"http://localhost:5173/upcoming\"]")
+    WebElement upComingButton;
+
+    @FindBy(xpath = "//a[@aria-label=\"click to view\"]")
+    WebElement completedButton;
+
+    private WebDriverWait getWait() {
+        return new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    public void clickSchedule() {
+        getWait().until(ExpectedConditions.elementToBeClickable(scheduleButton));
+        scheduleButton.click();
+        System.out.println("Clicked on Schedule");
+    }
+
+    public void clickUpComing() {
+        getWait().until(ExpectedConditions.elementToBeClickable(upComingButton));
+        upComingButton.click();
+        System.out.println("Clicked on Upcoming Audits");
+    }
+
+    public void clickComoleted() {
+        getWait().until(ExpectedConditions.elementToBeClickable(completedButton));
+        completedButton.click();
+        System.out.println("Clicked on Completed Audits");
+    }
+
+    // Optional helper for login test
+    public boolean isDashboardLoaded() {
+        return scheduleButton.isDisplayed();
+    }
+}

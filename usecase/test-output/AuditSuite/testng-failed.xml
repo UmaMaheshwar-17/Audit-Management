@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AuditSuite]">
+  <listeners>
+    <listener class-name="AuditCreate2.ExtentTestNGListener1"/>
+  </listeners>
+  <test thread-count="5" name="DataDrivenTests(failed)">
+    <classes>
+      <class name="AuditCreate2.FullAuditFlowSplit1">
+        <methods>
+          <include name="createAudit"/>
+          <include name="loginUser"/>
+          <include name="goToDashboard"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- AuditCreate2.FullAuditFlowSplit1 -->
+    </classes>
+  </test> <!-- DataDrivenTests(failed) -->
+</suite> <!-- Failed suite [AuditSuite] -->

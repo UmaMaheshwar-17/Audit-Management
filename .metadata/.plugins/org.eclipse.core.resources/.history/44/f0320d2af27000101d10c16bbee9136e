@@ -1,0 +1,74 @@
+package pageObjects;
+
+import java.time.Duration;
+import java.util.List;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import testBase.BasePage;
+
+public class feedBackPage extends BasePage {
+
+    public feedBackPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy(xpath = "//form/div[5]//button[text()='Complete']")
+    WebElement completeButton;
+
+    @FindBy(xpath = "//form/div[4]/div/textarea[1]")
+    WebElement summaryButton;
+
+    @FindBy(xpath = "//form/div[5]/div[2]/div/button")
+    WebElement saveDraftButton;
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    public void clickAllCheckboxes1() {
+        List<WebElement> check1 = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                By.xpath("//form/div[1]/div/div/label")));
+
+        for (WebElement ch : check1) {
+            System.out.println("Information Security Management System (ISMS)");
+            wait.until(ExpectedConditions.elementToBeClickable(ch)).click();
+        }
+    }
+
+    public void clickAllCheckboxes2() {
+        WebElement initialClick = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@id=\"root\"]/div/div/div[2]/div/form/div[2]/div/div/label[3]/span[1]/input")));
+        initialClick.click();
+
+        List<WebElement> check1 = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                By.xpath("//form/div[2]/div/div/label")));
+
+        for (WebElement ch : check1) {
+            System.out.println("Quality Management System (QMS)");
+            wait.until(ExpectedConditions.elementToBeClickable(ch)).click();
+        }
+    }
+
+    public void clickAllCheckboxes3() {
+        List<WebElement> check1 = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                By.xpath("//form/div[3]/div/div/label")));
+
+        for (WebElement ch : check1) {
+            System.out.println("Quality Management System (QMS)");
+            wait.until(ExpectedConditions.elementToBeClickable(ch)).click();
+        }
+    }
+
+    public void writeSummary() {
+        wait.until(ExpectedConditions.visibilityOf(summaryButton)).sendKeys("Good Audit");
+    }
+
+    public void clickComplete() {
+        wait.until(ExpectedConditions.elementToBeClickable(completeButton)).click();
+    }
+
+    public void saveDraft() {
+        wait.until(ExpectedConditions.elementToBeClickable(saveDraftButton)).click();
+    }
+}

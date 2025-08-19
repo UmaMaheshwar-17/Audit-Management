@@ -1,0 +1,12 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+import testBase.BasePage;
+
+public class FeedBackPage extends BasePage {
+	 public DashboardPage(WebDriver driver) {
+	        super(driver);
+	    }
+
+}

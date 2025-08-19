@@ -1,0 +1,11 @@
+<suite name="AuditSuite">
+    <listeners>
+        <listener class-name="listeners.ExtentTestNGListener" />
+    </listeners>
+
+    <test name="DataDrivenTests">
+        <classes>
+            <class name="AuditCreate1.TestFactory"/>
+        </classes>
+    </test>
+</suite>

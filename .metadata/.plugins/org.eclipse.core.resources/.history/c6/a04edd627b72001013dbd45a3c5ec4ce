@@ -1,0 +1,28 @@
+package AuditFeedback;
+
+import org.testng.annotations.Factory;
+import utilities.ExcelUtility;
+
+public class testFactory {
+
+    @Factory
+    public Object[] runAllRowsFromExcel() {
+        // ✅ Provide the full path to your Excel file
+        String excelPath = System.getProperty("user.dir") + "/testdata/FeedBack1.xlsx";  // Or wherever it's stored
+        String sheet = "Sheet1";
+        
+        ExcelUtility.setExcelPath(excelPath);  // This initializes the file
+
+        int rowCount = ExcelUtility.getRowCount(sheet)+1;
+        Object[] tests = new Object[rowCount - 1]; // Skip header row
+
+        for (int i = 1; i < rowCount; i++) {
+            String email = ExcelUtility.getCellData(sheet, i, 0);
+            String password = ExcelUtility.getCellData(sheet, i, 1);
+            String auditName = ExcelUtility.getCellData(sheet, i, 2);
+            tests[i - 1] = new fullAuditFeedback(email, password, auditName);
+        }
+
+        return tests;
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Audit Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="AuditFeedback.ExtentTestNGListener"/>
+  </listeners>
+  <test thread-count="5" name="Audit Feedback Tests(failed)">
+    <classes>
+      <class name="AuditFeedback.fullAuditFeedback">
+        <methods>
+          <include name="goToCompletedAuditsAndExport"/>
+          <include name="navigateToUpcomingAudits"/>
+          <include name="launchBrowserAndLogin"/>
+          <include name="openAuditFromList"/>
+          <include name="giveFeedbackAndComplete"/>
+        </methods>
+      </class> <!-- AuditFeedback.fullAuditFeedback -->
+    </classes>
+  </test> <!-- Audit Feedback Tests(failed) -->
+</suite> <!-- Failed suite [Audit Suite] -->

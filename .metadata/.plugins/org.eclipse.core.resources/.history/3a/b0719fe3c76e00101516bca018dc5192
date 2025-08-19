@@ -1,0 +1,22 @@
+package day1;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class FirstTestCase {
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://localhost:5173/audits/688c5cbbf6a96cca9c421874");
+		List<WebElement> check1=driver.findElements(By.xpath("//form/div[1]/div/div/label"));
+		for(WebElement ch:check1) {
+			System.out.println(ch.getText());
+		}
+		
+	}
+
+}

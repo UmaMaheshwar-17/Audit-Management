@@ -1,0 +1,30 @@
+package pageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import testBase.BasePage;
+
+public class upComingAudits extends BasePage {
+
+    public upComingAudits(WebDriver driver) {
+        super(driver);
+    }
+
+    // Optional: List of all rows if you want to iterate
+    @FindBy(xpath = "//table//tr")
+    private List<WebElement> auditRows;
+
+    // ✅ Dynamic locator method for AUDIT button by Audit Name
+    public WebElement getAuditButtonByName(String auditName) {
+        String dynamicXPath = "//tr[td[normalize-space()='" + auditName + "']]//button[contains(text(),'AUDIT')]";
+        return driver.findElement(By.xpath(dynamicXPath));
+    }
+
+    public void clickAuditButtonByName(String auditName) {
+        getAuditButtonByName(auditName).click();
+    }
+}

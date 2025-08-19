@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AuditManagementSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="AuditCreationFlow(failed)">
+    <classes>
+      <class name="testCases.RegisterTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testRegister" invocation-numbers="1"/>
+        </methods>
+      </class> <!-- testCases.RegisterTest -->
+      <class name="testCases.LoginTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testLogin" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- testCases.LoginTest -->
+    </classes>
+  </test> <!-- AuditCreationFlow(failed) -->
+</suite> <!-- Failed suite [AuditManagementSuite] -->

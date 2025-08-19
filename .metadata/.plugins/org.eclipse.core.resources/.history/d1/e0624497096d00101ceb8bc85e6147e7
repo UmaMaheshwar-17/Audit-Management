@@ -1,0 +1,67 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.*;
+
+public class ExcelUtility {
+
+    private static String excelPath;
+    private static XSSFWorkbook workbook;
+
+    /**
+     * Sets the path of the Excel file and loads the workbook into memory.
+     */
+    public static void setExcelPath(String path) throws IOException {
+        excelPath = path;
+        FileInputStream fi = new FileInputStream(excelPath);
+        workbook = new XSSFWorkbook(fi);
+    }
+
+    /**
+     * Returns the number of valid rows in the sheet.
+     * Includes all rows, starting from 0.
+     */
+    public static int getRowCount(String sheetName) {
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+        return sheet.getLastRowNum() + 1;  // +1 to include last row index
+    }
+
+    /**
+     * Returns the number of columns (cells) in a specific row.
+     */
+    public static int getCellCount(String sheetName, int rowNum) {
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+        XSSFRow row = sheet.getRow(rowNum);
+        if (row != null) {
+            return row.getLastCellNum();
+        }
+        return 0;
+    }
+
+    /**
+     * Returns the data from a cell, safely handling null cells.
+     */
+    public static String getCellData(String sheetName, int rowNum, int colNum) {
+        XSSFSheet sheet = workbook.getSheet(sheetName);
+        XSSFRow row = sheet.getRow(rowNum);
+        if (row == null) return "";
+
+        XSSFCell cell = row.getCell(colNum);
+        if (cell == null) return "";
+
+        DataFormatter formatter = new DataFormatter();
+        return formatter.formatCellValue(cell);
+    }
+
+    /**
+     * Closes the workbook and releases the file lock.
+     */
+    public static void closeWorkbook() throws IOException {
+        if (workbook != null) {
+            workbook.close();
+        }
+    }
+}

@@ -1,0 +1,67 @@
+package AuditFeedback;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+
+import pageObjects.*;
+import testBase.BaseTest1;
+
+public class fullAuditFeedback {
+
+    WebDriver driver;
+    String email, password, auditName;
+
+    LoginPage loginPage;
+    DashboardPage dashboardPage;
+    upComingAudits upcomingAuditsPage;
+    feedBackPage feedbackPage;
+    completedAuditsPage completedPage;
+
+    public fullAuditFeedback(String email, String password, String auditName) {
+        this.email = email;
+        this.password = password;
+        this.auditName = auditName;
+    }
+
+    @Test(priority = 0)
+    public void launchBrowserAndLogin() {
+        driver = BaseTest1.launchBrowser();
+
+        loginPage = new LoginPage(driver);
+        dashboardPage = new DashboardPage(driver);
+        upcomingAuditsPage = new upComingAudits(driver);
+        feedbackPage = new feedBackPage(driver);
+        completedPage = new completedAuditsPage(driver);
+
+        loginPage.login(email, password);
+    }
+
+    @Test(priority = 1, dependsOnMethods = "launchBrowserAndLogin")
+    public void navigateToUpcomingAudits() {
+        dashboardPage.clickUpComing();
+    }
+
+    @Test(priority = 2, dependsOnMethods = "navigateToUpcomingAudits")
+    public void openAuditFromList() {
+        upcomingAuditsPage.clickAuditButtonByAuditName(auditName);
+    }
+
+    @Test(priority = 3, dependsOnMethods = "openAuditFromList")
+    public void giveFeedbackAndComplete() throws InterruptedException {
+        feedbackPage.clickAllCheckboxes1();
+        feedbackPage.clickAllCheckboxes2();
+        feedbackPage.clickAllCheckboxes3();
+        
+        feedbackPage.writeSummary();
+        feedbackPage.clickComplete();
+        feedbackPage.saveDraft();
+        Thread.sleep(2000);
+        driver.get("http://localhost:5173/"); 
+    }
+
+    @Test(priority = 4, dependsOnMethods = "giveFeedbackAndComplete")
+    public void goToCompletedAuditsAndExport() {
+        dashboardPage.clickComoleted();
+        completedPage.clickExport();
+    }
+}

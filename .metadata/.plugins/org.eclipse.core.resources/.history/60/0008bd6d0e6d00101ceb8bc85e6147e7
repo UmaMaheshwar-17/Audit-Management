@@ -1,0 +1,9 @@
+package AuditCreate1;
+
+import org.testng.annotations.Test;
+
+public class TestFactoryTest {
+  @Test
+  public void f() {
+  }
+}

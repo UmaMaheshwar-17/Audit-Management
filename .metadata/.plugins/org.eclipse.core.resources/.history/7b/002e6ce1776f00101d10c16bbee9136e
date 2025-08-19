@@ -1,0 +1,25 @@
+package pageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import testBase.BasePage;
+
+public class feedBackPage extends BasePage {
+	public feedBackPage(WebDriver driver) {
+        super(driver);
+    }
+	
+	List<WebElement> check1=driver.findElements(By.xpath("//form/div[1]/div/div/label"));
+	
+	for(WebElement ch:check1) {
+		System.out.println("1");
+		ch.click();
+	}
+}
+}
+
+

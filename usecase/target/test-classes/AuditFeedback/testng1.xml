@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Audit Suite">
+    
+    <!-- Add listener to enable Extent reports -->
+    <listeners>
+        <listener class-name="AuditFeedback.ExtentTestNGListener"/>
+    </listeners>
+
+    <test name="Audit Feedback Tests">
+        <classes>
+            <class name="AuditFeedback.testFactory"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,28 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import testBase.BasePage;
+
+public class DashboardPage extends BasePage {
+
+    public DashboardPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy(xpath = "//a[normalize-space()='Schedule']")
+    WebElement scheduleButton;
+    
+    @FindBy(xpath = "//a[@href=\"http://localhost:5173/upcoming\"]")
+    WebElement upComingButton;
+
+    public void clickSchedule() {
+        scheduleButton.click();
+    }
+    
+    public void clickUpComing() {
+    	upComingButton.click();;
+    }
+}
