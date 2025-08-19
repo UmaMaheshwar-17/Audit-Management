@@ -41,12 +41,7 @@
     <scope>test</scope>
 </dependency>
 
-   	<dependency>
-   		<groupId>seleniumwedriver</groupId>
-   		<artifactId>seleniumwedriver</artifactId>
-   		<version>0.0.1-SNAPSHOT</version>
-   	</dependency>
-   	
+   
    	<dependency>
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
