@@ -1,33 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-12T10:04:43 IST" name="Audit Suite" finished-at="2025-08-12T10:05:02 IST" duration-ms="19243">
+  <suite started-at="2025-08-19T14:03:00 IST" name="AuditSuite" finished-at="2025-08-19T14:03:29 IST" duration-ms="28618">
     <groups>
     </groups>
-    <test started-at="2025-08-12T10:04:43 IST" name="Audit Feedback Tests" finished-at="2025-08-12T10:05:02 IST" duration-ms="19243">
-      <class name="AuditFeedback.fullAuditFeedback">
-        <test-method signature="launchBrowserAndLogin()[pri:0, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:44 IST" name="launchBrowserAndLogin" finished-at="2025-08-12T10:04:50 IST" duration-ms="6632" status="PASS">
+    <test started-at="2025-08-19T14:03:00 IST" name="DataDrivenTests" finished-at="2025-08-19T14:03:29 IST" duration-ms="28618">
+      <class name="AuditCreate2.FullAuditFlowSplit1">
+        <test-method is-config="true" signature="setup()[pri:0, instance:AuditCreate2.FullAuditFlowSplit1@2234078, instance params:[]]" started-at="2025-08-19T14:03:01 IST" name="setup" finished-at="2025-08-19T14:03:10 IST" duration-ms="8725" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- launchBrowserAndLogin -->
-        <test-method signature="navigateToUpcomingAudits()[pri:1, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:50 IST" name="navigateToUpcomingAudits" finished-at="2025-08-12T10:04:51 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.launchBrowserAndLogin" duration-ms="684" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="loginUser()[pri:1, instance:AuditCreate2.FullAuditFlowSplit1@2234078, instance params:[]]" started-at="2025-08-19T14:03:10 IST" name="loginUser" finished-at="2025-08-19T14:03:11 IST" duration-ms="1482" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- navigateToUpcomingAudits -->
-        <test-method signature="openAuditFromList()[pri:2, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:51 IST" name="openAuditFromList" finished-at="2025-08-12T10:04:52 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.navigateToUpcomingAudits" duration-ms="750" status="PASS">
+        </test-method> <!-- loginUser -->
+        <test-method signature="goToDashboard()[pri:0, instance:AuditCreate2.FullAuditFlowSplit1@2234078, instance params:[]]" started-at="2025-08-19T14:03:11 IST" name="goToDashboard" finished-at="2025-08-19T14:03:12 IST" depends-on-methods="AuditCreate2.FullAuditFlowSplit1.loginUser" duration-ms="735" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- openAuditFromList -->
-        <test-method signature="giveFeedbackAndComplete()[pri:3, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:04:52 IST" name="giveFeedbackAndComplete" finished-at="2025-08-12T10:05:01 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.openAuditFromList" duration-ms="9182" status="PASS">
+        </test-method> <!-- goToDashboard -->
+        <test-method signature="createAudit()[pri:0, instance:AuditCreate2.FullAuditFlowSplit1@2234078, instance params:[]]" started-at="2025-08-19T14:03:12 IST" name="createAudit" finished-at="2025-08-19T14:03:29 IST" depends-on-methods="AuditCreate2.FullAuditFlowSplit1.goToDashboard" duration-ms="17223" status="FAIL">
+          <exception class="org.openqa.selenium.remote.UnreachableBrowserException">
+            <message>
+              <![CDATA[Error communicating with the remote browser. It may have died.
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [335b19d4c4481394043f1392665639a6, findElements [value, using]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.97, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\UMAMAH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56799}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56799/devtoo..., se:cdpVersion: 138.0.7204.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 335b19d4c4481394043f1392665639a6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: '4.34.0', revision: '707dcb4246*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [335b19d4c4481394043f1392665639a6, findElements [value, using]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 138.0.7204.97, chrome: {chromedriverVersion: 138.0.7204.183 (e90faf484dd..., userDataDir: C:\Users\UMAMAH~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56799}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56799/devtoo..., se:cdpVersion: 138.0.7204.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 335b19d4c4481394043f1392665639a6
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:571)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:182)
+at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:103)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:380)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:374)
+at pageObjects1.CreateAuditPage1.selectDropdownOptionByText(CreateAuditPage1.java:120)
+at pageObjects1.CreateAuditPage1.selectStakeholder(CreateAuditPage1.java:83)
+at AuditCreate2.FullAuditFlowSplit1.createAudit(FullAuditFlowSplit1.java:70)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.io.UncheckedIOException: java.io.IOException: HTTP/1.1 header parser received no bytes
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:500)
+at org.openqa.selenium.remote.http.AddSeleniumUserAgent.lambda$apply$0(AddSeleniumUserAgent.java:42)
+at org.openqa.selenium.remote.http.Filter.lambda$andFinally$1(Filter.java:55)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.lambda$executeAsync$2(JdkHttpClient.java:387)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:967)
+at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+at org.openqa.selenium.remote.http.jdk.JdkHttpClient.execute0(JdkHttpClient.java:459)
+... 8 more
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+at java.net.http/jdk.internal.net.http.common.Utils.wrapWithExtraDetail(Utils.java:388)
+at java.net.http/jdk.internal.net.http.Http1Response$HeadersReader.onReadError(Http1Response.java:590)
+at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.checkForErrors(Http1AsyncReceiver.java:302)
+at java.net.http/jdk.internal.net.http.Http1AsyncReceiver.flush(Http1AsyncReceiver.java:268)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler$LockingRestartableTask.run(SequentialScheduler.java:182)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler$CompleteRestartableTask.run(SequentialScheduler.java:149)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207)
+... 3 more
+Caused by: java.net.SocketException: Connection reset
+at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:401)
+at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:434)
+at java.net.http/jdk.internal.net.http.SocketTube.readAvailable(SocketTube.java:1178)
+at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.read(SocketTube.java:841)
+at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowTask.run(SocketTube.java:181)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler$SchedulableTask.run(SequentialScheduler.java:207)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:280)
+at java.net.http/jdk.internal.net.http.common.SequentialScheduler.runOrSchedule(SequentialScheduler.java:233)
+at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription.signalReadable(SocketTube.java:782)
+at java.net.http/jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent.signalEvent(SocketTube.java:965)
+at java.net.http/jdk.internal.net.http.SocketTube$SocketFlowEvent.handle(SocketTube.java:253)
+at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.handleEvent(HttpClientImpl.java:1470)
+at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.lambda$run$3(HttpClientImpl.java:1415)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at java.net.http/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1415)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.remote.UnreachableBrowserException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- giveFeedbackAndComplete -->
-        <test-method signature="goToCompletedAuditsAndExport()[pri:4, instance:AuditFeedback.fullAuditFeedback@41a6d121, instance params:[]]" started-at="2025-08-12T10:05:01 IST" name="goToCompletedAuditsAndExport" finished-at="2025-08-12T10:05:02 IST" depends-on-methods="AuditFeedback.fullAuditFeedback.giveFeedbackAndComplete" duration-ms="1024" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToCompletedAuditsAndExport -->
-      </class> <!-- AuditFeedback.fullAuditFeedback -->
-    </test> <!-- Audit Feedback Tests -->
-  </suite> <!-- Audit Suite -->
+        </test-method> <!-- createAudit -->
+      </class> <!-- AuditCreate2.FullAuditFlowSplit1 -->
+    </test> <!-- DataDrivenTests -->
+  </suite> <!-- AuditSuite -->
 </testng-results>
