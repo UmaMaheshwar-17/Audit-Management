@@ -72,6 +72,7 @@ public class FullAuditFlowSplit1 {
         auditPage.clickCreate();
         Thread.sleep(2000);
         auditPage.clickOk();
+        Thread.sleep(3000);
         String expectedUrl = "http://localhost:5173/";
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl, "Audit creation failed or incorrect redirection.");
